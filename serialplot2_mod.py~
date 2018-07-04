@@ -1,0 +1,54 @@
+import numpy 
+import matplotlib.pyplot as plt # import matplotlib library
+import serial
+import time
+#import drawnow
+#from drawnow import *
+
+
+#sec= []
+data_raw= []
+port0= '/dev/ttyACM0'
+port1= '/dev/ttyACM1'
+port2= '/dev/ttyACM2'
+#F1= []
+#F2= []
+#F3= []
+
+##plt.ion() #Tell matplotlib you want interactive mode to plot live data
+##def makeFig(): #Function to create plot
+##plt.plot(data_raw)
+    
+##while True:
+##    while (ser.inWaiting()==0): #Wait here until there is data
+##        print(str(ser.read()))
+##      pass #do noth
+
+#print(sec)   
+#println(f1)
+
+ser = serial.Serial(port1, 9600)
+#print(ser.readline)
+#print(serial.Serial.readline)
+
+try:
+    ser.isOpen()
+    print("Serial port is open")
+    print(ser.readline)
+except:
+    print("Error")
+    exit()
+if(ser.isOpen()):
+    try:
+        while(1):
+            data_raw = str(ser.readline)
+            print(data_raw)
+            sec = str(data_raw[0])
+            f1 = str(data_raw[1])
+            print(ser.read())
+            print(sec)
+            println(f1)
+    except Exception:
+        print("error")
+else:
+    print("cannot open serial port")
