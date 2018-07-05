@@ -5,6 +5,7 @@ import time
 #import drawnow
 #from drawnow import *
 
+fig, ax = plt.subplots()
 
 #sec= []
 data_raw= []
